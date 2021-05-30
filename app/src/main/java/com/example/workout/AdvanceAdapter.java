@@ -13,7 +13,7 @@ import java.util.List;
 
 public class AdvanceAdapter extends RecyclerView.Adapter<AdvanceAdapter.DayViewHolder> {
     private final OnLinkClick onLinkClick ;
-    private List<Day> daysList = new ArrayList<>() ;
+    private List<advanceDays> daysList = new ArrayList<>() ;
 
     public AdvanceAdapter(OnLinkClick onLinkClick) {
         this.onLinkClick = onLinkClick;
@@ -31,20 +31,10 @@ public class AdvanceAdapter extends RecyclerView.Adapter<AdvanceAdapter.DayViewH
             holder.DayNumber.setText(daysList.get(position).getDayNumber());
             holder.uri.setText(daysList.get(position).getUri());
             holder.uri2.setText(daysList.get(position).getUri2());
-            holder.uri.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    onLinkClick.onClickObserver(daysList.get(position).getUri());
-                }
-            });
+            holder.uri.setOnClickListener(view -> onLinkClick.onClickObserver(daysList.get(position).getUri()));
             holder.uri2.setText(daysList.get(position).getUri2());
 
-            holder.uri2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    onLinkClick.onClickObserver(daysList.get(position).getUri2());
-                }
-            });
+            holder.uri2.setOnClickListener(view -> onLinkClick.onClickObserver(daysList.get(position).getUri2()));
         }
 
 
@@ -54,7 +44,7 @@ public class AdvanceAdapter extends RecyclerView.Adapter<AdvanceAdapter.DayViewH
             return daysList.size();
         }
 
-        public void setList (List <Day> daysList ){
+        public void setList (List <advanceDays> daysList ){
             this.daysList = daysList;
             notifyDataSetChanged();
         }

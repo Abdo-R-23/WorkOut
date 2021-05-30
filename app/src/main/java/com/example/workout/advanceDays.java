@@ -3,9 +3,8 @@ package com.example.workout;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "days_table")
-public class Day {
-
+@Entity(tableName = "advance_days_table")
+public class advanceDays {
     @PrimaryKey(autoGenerate = true)
     public int id;
     String dayNumber;
@@ -13,10 +12,10 @@ public class Day {
     String uri;
     String uri2;
 
-    public Day() {
+    public advanceDays() {
     }
 
-    public Day(String dayNumber, String uri, String uri2 , Boolean done) {
+    public advanceDays(String dayNumber, String uri, String uri2 , Boolean done) {
 
         this.Done = done;
         this.dayNumber = dayNumber;
